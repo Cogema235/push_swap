@@ -48,19 +48,3 @@ int64_t	atoi64(char *str)
 		return (-nbr);
 	return (nbr);
 }
-
-int32_t	*minint32(int32_t *stack, int32_t offset, uint32_t len)
-{
-	uint32_t	index;
-	int32_t		*min;
-
-	index = 0;
-	min = &stack[0];
-	while (index < len)
-	{
-		if ((stack[index] < *min && stack[index] >= offset) || *min < offset)
-			min = &stack[index];
-		index++;
-	}
-	return (min);
-}

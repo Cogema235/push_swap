@@ -18,18 +18,18 @@ void	display_stacks(t_push_swap *push_swap)
 	uint32_t	index;
 
 	index = 0;
-	printf("A : -");
+	printf("A : ");
 	while (index < push_swap->a_weight)
 	{
 		printf("%d ", push_swap->stack_a[index]);
 		index++;
 	}
 	index = 0;
-	printf("\b- B : -");
+	printf("\b B : ");
 	while (index < push_swap->b_weight)
 	{
 		printf("%d ", push_swap->stack_b[index]);
 		index++;
 	}
-	printf("\b-\n");
+	printf("\b \n");
 }
