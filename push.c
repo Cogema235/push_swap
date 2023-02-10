@@ -45,6 +45,8 @@ void	pa(t_push_swap *push_swap)
 		push_swap->stack_a[0] = push_swap->stack_b[0];
 		shift_up(push_swap->stack_b, push_swap->stacks_len);
 	}
+	push_swap->a_weight++;
+	push_swap->b_weight--;
 }
 
 void	pb(t_push_swap *push_swap)
@@ -56,4 +58,6 @@ void	pb(t_push_swap *push_swap)
 		push_swap->stack_b[0] = push_swap->stack_a[0];
 		shift_up(push_swap->stack_a, push_swap->stacks_len);
 	}
+	push_swap->b_weight++;
+	push_swap->a_weight--;
 }

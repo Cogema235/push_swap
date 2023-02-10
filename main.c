@@ -22,14 +22,6 @@ int	main(int ac, char **av)
 	if (!push_swap_)
 		allocation_error();
 	init_push_swap(push_swap_, av, ac);
-
-	//TESTS//
-
-	//pb(push_swap_);
-
-	/////////
-
-	display_stacks(push_swap_);
 	delete_push_swap(push_swap_);
 	return (0);
 }

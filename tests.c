@@ -30,5 +30,5 @@ void	display_stacks(t_push_swap *push_swap)
 		printf("%d ", push_swap->stack_b[index]);
 		index++;
 	}
-	printf("-\n");
+	printf("\b-\n");
 }
