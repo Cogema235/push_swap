@@ -28,7 +28,7 @@ void    rra(t_push_swap *push_swap)
 
 void    rrb(t_push_swap *push_swap)
 {
-    rotate(push_swap->stack_b, push_swap->stacks_len);
+    r_rotate(push_swap->stack_b, push_swap->stacks_len);
 }
 
 void    rrr(t_push_swap *push_swap)
