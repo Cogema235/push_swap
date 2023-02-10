@@ -22,7 +22,8 @@ int	main(int ac, char **av)
 	if (!push_swap_)
 		allocation_error();
 	init_push_swap(push_swap_, av, ac);
-	display_stacks(push_swap_);
+	radix_sort(push_swap_);
+	print_str(push_swap_->instructions);
 	delete_push_swap(push_swap_);
 	return (0);
 }

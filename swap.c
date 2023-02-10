@@ -24,15 +24,18 @@ static void	swap(int32_t *stack)
 void	sa(t_push_swap *push_swap)
 {
 	swap(push_swap->stack_a);
+	dynappend_str(push_swap->instructions, "sa\n");
 }
 
 void	sb(t_push_swap *push_swap)
 {
 	swap(push_swap->stack_b);
+	dynappend_str(push_swap->instructions, "sb\n");
 }
 
 void	ss(t_push_swap *push_swap)
 {
-	sa(push_swap);
-	sb(push_swap);
+	swap(push_swap->stack_a);
+	swap(push_swap->stack_b);
+	dynappend_str(push_swap->instructions, "ss\n");
 }

@@ -34,7 +34,9 @@ t_push_swap	*push_swap(uint32_t stacks_len)
 	push_swap->stack_a = calloc(stacks_len, sizeof(int32_t));
 	push_swap->stack_b = calloc(stacks_len, sizeof(int32_t));
 	push_swap->sorted_a = malloc(sizeof(int32_t) * stacks_len);
-	if (!(push_swap->stack_a && push_swap->stack_b && push_swap->sorted_a))
+	push_swap->instructions = dynastring(10);
+	if (!(push_swap->stack_a && push_swap->stack_b && push_swap->sorted_a
+			&& push_swap->instructions))
 		return (NULL);
 	push_swap->a_weight = 0;
 	push_swap->b_weight = 0;
@@ -43,6 +45,7 @@ t_push_swap	*push_swap(uint32_t stacks_len)
 
 void	delete_push_swap(t_push_swap *push_swap)
 {
+	delete_dynastring(push_swap->instructions);
 	free(push_swap->stack_a);
 	free(push_swap->stack_b);
 	free(push_swap->sorted_a);

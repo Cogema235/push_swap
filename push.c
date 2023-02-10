@@ -47,6 +47,7 @@ void	pa(t_push_swap *push_swap)
 	}
 	push_swap->a_weight++;
 	push_swap->b_weight--;
+	dynappend_str(push_swap->instructions, "pa\n");
 }
 
 void	pb(t_push_swap *push_swap)
@@ -60,4 +61,5 @@ void	pb(t_push_swap *push_swap)
 	}
 	push_swap->b_weight++;
 	push_swap->a_weight--;
+	dynappend_str(push_swap->instructions, "pb\n");
 }

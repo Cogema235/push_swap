@@ -24,15 +24,18 @@ static void	r_rotate(int32_t *stack, uint32_t len)
 void	rra(t_push_swap *push_swap)
 {
 	r_rotate(push_swap->stack_a, push_swap->stacks_len);
+	dynappend_str(push_swap->instructions, "rra\n");
 }
 
 void	rrb(t_push_swap *push_swap)
 {
 	r_rotate(push_swap->stack_b, push_swap->stacks_len);
+	dynappend_str(push_swap->instructions, "rrb\n");
 }
 
 void	rrr(t_push_swap *push_swap)
 {
-	rra(push_swap);
-	rrb(push_swap);
+	r_rotate(push_swap->stack_a, push_swap->stacks_len);
+	r_rotate(push_swap->stack_b, push_swap->stacks_len);
+	dynappend_str(push_swap->instructions, "rrr\n");
 }

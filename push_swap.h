@@ -17,17 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_push_swap
-{
-	uint32_t	stacks_len;
-	uint32_t	a_weight;
-	uint32_t	b_weight;
-	int32_t		*stack_a;
-	int32_t		*stack_b;
-	int32_t		*sorted_a;
-
-}	t_push_swap;
-
 typedef struct s_dynastring
 {
 	uint32_t	allocated_size;
@@ -35,6 +24,19 @@ typedef struct s_dynastring
 	char		*str;
 }	t_dynastring;
 
+typedef struct s_push_swap
+{
+	t_dynastring	*instructions;
+	uint32_t		stacks_len;
+	uint32_t		a_weight;
+	uint32_t		b_weight;
+	int32_t			*stack_a;
+	int32_t			*stack_b;
+	int32_t			*sorted_a;
+
+}	t_push_swap;
+
+t_dynastring	*dynappend_str(t_dynastring *dynstr, char *str);
 t_dynastring	*dynastring(uint32_t size);
 t_dynastring	*dappend_chr(t_dynastring *dynstr, char chr);
 t_dynastring	*print_str(t_dynastring *dynstr);
@@ -70,5 +72,6 @@ void			shift_up(int32_t *stack, uint32_t len);
 void			simplify_a(t_push_swap *push_swap);
 void			set_sorted(t_push_swap *push_swap);
 void			delete_dynastring(t_dynastring *dynstr);
+void			radix_sort(t_push_swap *push_swap);
 
 #endif
