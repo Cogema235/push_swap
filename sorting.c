@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nomoulin <nomoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,19 +12,28 @@
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	simplify_stack(int32_t *stack, uint32_t len)
 {
-	t_push_swap	*push_swap_;
+	uint32_t	count;
+	int32_t		offset;
+	int32_t		*current_min;
 
-	if (!entry_is_valid(--ac, ++av))
-		invalid_entry_error();
-	push_swap_ = push_swap(ac);
-	if (!push_swap_)
-		allocation_error();
-	init_push_swap(push_swap_, av, ac);
-	display_stacks(push_swap_);
-	simplify_a(push_swap_);
-	display_stacks(push_swap_);
-	delete_push_swap(push_swap_);
-	return (0);
+	count = 0;
+	offset = *(minint32(stack, INT32_MIN, len));
+	while (count < len)
+	{
+		current_min = minint32(stack, offset, len);
+		offset = *current_min;
+		*current_min = count;
+		count++;
+		if (offset != INT32_MAX)
+			offset++;
+		else
+			return ;
+	}
+}
+
+void	simplify_a(t_push_swap *push_swap)
+{
+	simplify_stack(push_swap->stack_a, push_swap->stacks_len);
 }

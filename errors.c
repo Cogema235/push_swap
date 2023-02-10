@@ -23,5 +23,5 @@ void	allocation_error(void)
 {
 	write(STDOUT_FILENO, "Error, allacation failed.\n",
 		sizeof("Error, allocation failed.\n"));
-	exit(0);
+	exit(EXIT_FAILURE);
 }
