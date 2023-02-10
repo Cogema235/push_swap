@@ -15,7 +15,7 @@ NAME = push_swap
 CC = clang
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
-CFILES = errors main tests check init push_swap utils swap push rotate r_rotate
+CFILES = errors main tests check init push_swap utils swap push rotate r_rotate utils1
 OBJS = $(addsuffix .o, $(CFILES))
 
 all : $(NAME)

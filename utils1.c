@@ -12,46 +12,19 @@
 
 #include "push_swap.h"
 
-int32_t	strcmp_(char *s1, char *s2)
+uint8_t	is_int32(char *str)
 {
-	uint32_t	i;
+	int64_t	nbr;
 
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] && s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
-
-uint8_t	is_digit_(char chr)
-{
-	return (chr >= '0' && chr <= '9');
-}
-
-uint8_t	is_int(char *nbr)
-{
-	uint8_t	digits_number;
-	uint8_t	chr_number;
-
-	if (nbr[0] == '+' || nbr[0] == '-')
-		nbr++;
-	digits_number = 0;
-	chr_number = 0;
-	while (nbr[chr_number])
+	if (is_int(str))
 	{
-		if (is_digit_(nbr[chr_number]))
-			digits_number++;
-		chr_number++;
+		nbr = atoi64(str);
+		return ((nbr >= INT32_MIN && nbr <= INT32_MAX));
 	}
-	return (chr_number == digits_number && digits_number);
+	return (0);
 }
 
-uint8_t	is_ws(char c)
-{
-	return (c == ' ' || c == '\t' || c == '\n' || c == '\r'
-		|| c == '\v' || c == '\f');
-}
-
-int32_t	atoi32(char *str)
+int64_t	atoi64(char *str)
 {
 	int64_t	i;
 	int64_t	nbr;

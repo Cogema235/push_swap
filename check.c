@@ -41,7 +41,7 @@ uint8_t	entry_is_valid(uint32_t ac, char **av)
 	current_index = 0;
 	while (current_index < ac)
 	{
-		if (!is_int(av[current_index]) || !is_unique(av, current_index, ac))
+		if (!is_int32(av[current_index]) || !is_unique(av, current_index, ac))
 			return (0);
 		current_index++;
 	}

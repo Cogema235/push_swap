@@ -19,7 +19,7 @@ void	init_push_swap(t_push_swap *push_swap, char **nbrs, uint32_t size)
 	current_index = 0;
 	while (current_index < size)
 	{
-		push_swap->stack_a[current_index] = atoi_(nbrs[current_index]);
+		push_swap->stack_a[current_index] = atoi32(nbrs[current_index]);
 		current_index++;
 		push_swap->a_weight++;
 	}

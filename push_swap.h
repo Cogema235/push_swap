@@ -30,12 +30,15 @@ typedef struct s_push_swap
 
 t_push_swap	*push_swap(uint32_t stacks_len);
 uint32_t	occurences(char *str, char **cont, uint32_t len);
-int32_t		atoi_(char *str);
+int32_t		atoi32(char *str);
+int64_t		atoi64(char *str);
 int32_t		strcmp_(char *s1, char *s2);
 uint8_t		entry_is_valid(uint32_t ac, char **av);
 uint8_t		is_unique(char **args, uint32_t index, uint32_t len);
 uint8_t		is_int(char *nbr);
 uint8_t		is_digit_(char chr);
+uint8_t		is_int32(char *str);
+uint8_t		is_ws(char c);
 void		init_push_swap(t_push_swap *push_swap, char **nbrs, uint32_t size);
 void		add_number(t_push_swap *push_swap, int32_t number);
 void		delete_push_swap(t_push_swap *push_swap);
