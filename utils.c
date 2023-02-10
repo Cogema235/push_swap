@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	strcmp_(const char *s1, const char *s2)
+int32_t	strcmp_(char *s1, char *s2)
 {
 	int	i;
 

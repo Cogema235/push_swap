@@ -14,8 +14,8 @@
 
 void	invalid_entry_error(void)
 {
-	write(STDOUT_FILENO, "Error, invalid entry.\n",
-		sizeof("Error, invalid entry.\n"));
+	write(STDOUT_FILENO, "Error\n",
+		sizeof("Error\n"));
 	exit(0);
 }
 

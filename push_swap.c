@@ -35,6 +35,8 @@ t_push_swap	*push_swap(uint32_t stacks_len)
 	push_swap->stack_b = calloc(stacks_len, sizeof(int32_t));
 	if (!(push_swap->stack_a && push_swap->stack_b))
 		return (NULL);
+	push_swap->a_weight = 0;
+	push_swap->b_weight = 0;
 	return (push_swap);
 }
 
