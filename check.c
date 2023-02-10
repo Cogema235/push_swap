@@ -16,19 +16,20 @@ uint32_t	occurences(char *str, char **cont, uint32_t len)
 {
 	uint32_t	occ;
 	uint32_t	index;
+	int32_t		candidate;
 
 	occ = 0;
 	index = 0;
+	candidate = atoi32(str);
 	while (index < len)
 	{
-		if (!strcmp_(str, cont[index]))
+		if (!(atoi32(cont[index]) - candidate))
 			occ++;
 		index++;
 	}
 	return (occ);
 }
 
-/* ATTENTION, +5 = 5 ? */
 uint8_t	is_unique(char **args, uint32_t index, uint32_t len)
 {
 	return (occurences(args[index], args, len) == 1);
