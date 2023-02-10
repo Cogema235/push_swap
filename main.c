@@ -23,8 +23,6 @@ int	main(int ac, char **av)
 		allocation_error();
 	init_push_swap(push_swap_, av, ac);
 	display_stacks(push_swap_);
-	simplify_a(push_swap_);
-	display_stacks(push_swap_);
 	delete_push_swap(push_swap_);
 	return (0);
 }

@@ -23,4 +23,5 @@ void	init_push_swap(t_push_swap *push_swap, char **nbrs, uint32_t size)
 		current_index++;
 		push_swap->a_weight++;
 	}
+	simplify_a(push_swap);
 }
