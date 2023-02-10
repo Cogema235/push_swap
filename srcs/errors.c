@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nomoulin <nomoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,32 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static void	rotate(int32_t *stack, uint32_t len)
+void	invalid_entry_error(void)
 {
-	int32_t	tmp;
-
-	tmp = stack[0];
-	shift_up(stack, len);
-	stack[len - 1] = tmp;
+	write(STDOUT_FILENO, "Error\n",
+		sizeof("Error\n"));
+	exit(0);
 }
 
-void	ra(t_push_swap *push_swap)
+void	allocation_error(void)
 {
-	rotate(push_swap->stack_a, push_swap->stacks_len);
-	dynappend_str(push_swap->instructions, "ra\n");
-}
-
-void	rb(t_push_swap *push_swap)
-{
-	rotate(push_swap->stack_b, push_swap->stacks_len);
-	dynappend_str(push_swap->instructions, "rb\n");
-}
-
-void	rr(t_push_swap *push_swap)
-{
-	rotate(push_swap->stack_a, push_swap->stacks_len);
-	rotate(push_swap->stack_b, push_swap->stacks_len);
-	dynappend_str(push_swap->instructions, "rr\n");
+	write(STDOUT_FILENO, "Error, allacation failed.\n",
+		sizeof("Error, allocation failed.\n"));
+	exit(EXIT_FAILURE);
 }

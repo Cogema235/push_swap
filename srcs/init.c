@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dynastring.c                                       :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nomoulin <nomoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 18:52:46 by nomoulin          #+#    #+#             */
-/*   Updated: 2023/02/08 19:03:35 by nomoulin         ###   ########.fr       */
+/*   Created: 2023/02/10 10:43:48 by nomoulin          #+#    #+#             */
+/*   Updated: 2023/02/10 14:04:39 by nomoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_dynastring	*dynappend_str(t_dynastring *dynstr, char *str)
+void	init_push_swap(t_push_swap *push_swap, char **nbrs, uint32_t size)
 {
-	uint32_t	i;
+	uint32_t	current_index;
 
-	i = 0;
-	while (str[i])
+	current_index = 0;
+	while (current_index < size)
 	{
-		dappend_chr(dynstr, str[i]);
-		i++;
+		push_swap->stack_a[current_index] = atoi32(nbrs[current_index]);
+		current_index++;
+		push_swap->a_weight++;
 	}
-	return (dynstr);
+	set_sorted(push_swap);
+	simplify_a(push_swap);
 }

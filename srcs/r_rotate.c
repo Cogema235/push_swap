@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nomoulin <nomoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,32 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-static void	swap(int32_t *stack)
+static void	r_rotate(int32_t *stack, uint32_t len)
 {
 	int32_t	tmp;
 
-	tmp = stack[0];
-	stack[0] = stack[1];
-	stack[1] = tmp;
+	tmp = stack[len - 1];
+	shift_down(stack, len);
+	stack[0] = tmp;
 }
 
-void	sa(t_push_swap *push_swap)
+void	rra(t_push_swap *push_swap)
 {
-	swap(push_swap->stack_a);
-	dynappend_str(push_swap->instructions, "sa\n");
+	r_rotate(push_swap->stack_a, push_swap->stacks_len);
+	dynappend_str(push_swap->instructions, "rra\n");
 }
 
-void	sb(t_push_swap *push_swap)
+void	rrb(t_push_swap *push_swap)
 {
-	swap(push_swap->stack_b);
-	dynappend_str(push_swap->instructions, "sb\n");
+	r_rotate(push_swap->stack_b, push_swap->stacks_len);
+	dynappend_str(push_swap->instructions, "rrb\n");
 }
 
-void	ss(t_push_swap *push_swap)
+void	rrr(t_push_swap *push_swap)
 {
-	swap(push_swap->stack_a);
-	swap(push_swap->stack_b);
-	dynappend_str(push_swap->instructions, "ss\n");
+	r_rotate(push_swap->stack_a, push_swap->stacks_len);
+	r_rotate(push_swap->stack_b, push_swap->stacks_len);
+	dynappend_str(push_swap->instructions, "rrr\n");
 }

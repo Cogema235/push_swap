@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   dynastring.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nomoulin <nomoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 10:51:38 by nomoulin          #+#    #+#             */
-/*   Updated: 2023/02/10 14:24:34 by nomoulin         ###   ########.fr       */
+/*   Created: 2023/02/08 18:52:46 by nomoulin          #+#    #+#             */
+/*   Updated: 2023/02/08 19:03:35 by nomoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	radix_sort(t_push_swap *push_swap)
+t_dynastring	*dynappend_str(t_dynastring *dynstr, char *str)
 {
-	(void)push_swap;
-	return ;
+	uint32_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		dappend_chr(dynstr, str[i]);
+		i++;
+	}
+	return (dynstr);
 }

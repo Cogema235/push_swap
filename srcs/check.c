@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 uint32_t	occurences(char *str, char **cont, uint32_t len)
 {
