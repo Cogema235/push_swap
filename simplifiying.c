@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	swapp(uint32_t *xp, uint32_t *yp)
+void	swapp(int32_t *xp, int32_t *yp)
 {
 	int32_t	temp;
 
