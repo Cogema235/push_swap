@@ -17,9 +17,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-#include <stdio.h>
+# include <stdio.h>
 
-typedef	struct s_push_swap
+typedef struct s_push_swap
 {
 	uint32_t	stacks_len;
 	uint32_t	a_weight;
@@ -46,8 +46,8 @@ void		sa(t_push_swap *push_swap);
 void		sb(t_push_swap *push_swap);
 void		pa(t_push_swap *push_swap);
 void		pb(t_push_swap *push_swap);
-void    	ra(t_push_swap *push_swap);
-void    	rb(t_push_swap *push_swap);
+void		ra(t_push_swap *push_swap);
+void		rb(t_push_swap *push_swap);
 void		rr(t_push_swap *push_swap);
 void		rra(t_push_swap *push_swap);
 void		rra(t_push_swap *push_swap);

@@ -28,7 +28,8 @@ uint32_t	occurences(char *str, char **cont, uint32_t len)
 	return (occ);
 }
 
-uint8_t	is_unique(char **args, uint32_t index, uint32_t len) //ATTENTION, +5 = 5 ?
+/* ATTENTION, +5 = 5 ? */
+uint8_t	is_unique(char **args, uint32_t index, uint32_t len)
 {
 	return (occurences(args[index], args, len) == 1);
 }

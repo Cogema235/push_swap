@@ -12,27 +12,27 @@
 
 #include "push_swap.h"
 
-static void    r_rotate(int32_t *stack, uint32_t len)
+static void	r_rotate(int32_t *stack, uint32_t len)
 {
-    int32_t tmp;
+	int32_t	tmp;
 
-    tmp = stack[len - 1];
-    shift_down(stack, len);
-    stack[0] = tmp;
+	tmp = stack[len - 1];
+	shift_down(stack, len);
+	stack[0] = tmp;
 }
 
-void    rra(t_push_swap *push_swap)
+void	rra(t_push_swap *push_swap)
 {
-    r_rotate(push_swap->stack_a, push_swap->stacks_len);
+	r_rotate(push_swap->stack_a, push_swap->stacks_len);
 }
 
-void    rrb(t_push_swap *push_swap)
+void	rrb(t_push_swap *push_swap)
 {
-    r_rotate(push_swap->stack_b, push_swap->stacks_len);
+	r_rotate(push_swap->stack_b, push_swap->stacks_len);
 }
 
-void    rrr(t_push_swap *push_swap)
+void	rrr(t_push_swap *push_swap)
 {
-    rra(push_swap);
-    rrb(push_swap);
+	rra(push_swap);
+	rrb(push_swap);
 }
