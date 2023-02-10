@@ -17,18 +17,18 @@ void	display_stacks(t_push_swap *push_swap)
 	uint32_t	index;
 
 	index = 0;
-	write(STDOUT_FILENO, "A :\n\n", sizeof("A :\n\n"));
-	while (index < push_swap->stacks_len)
+	printf("A : -");
+	while (index < push_swap->a_weight)
 	{
-		printf("%d\n", push_swap->stack_a[index]);
+		printf("%d ", push_swap->stack_a[index]);
 		index++;
 	}
-	printf("\n");
 	index = 0;
-	write(STDOUT_FILENO, "B :\n\n", sizeof("B :\n\n"));
-	while (index < push_swap->stacks_len)
+	printf("\b- B : -");
+	while (index < push_swap->b_weight)
 	{
-		printf("%d\n", push_swap->stack_b[index]);
+		printf("%d ", push_swap->stack_b[index]);
 		index++;
 	}
+	printf("-\n");
 }
