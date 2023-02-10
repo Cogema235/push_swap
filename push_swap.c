@@ -27,7 +27,7 @@ t_push_swap	*push_swap(uint32_t stacks_len)
 {
 	t_push_swap	*push_swap;
 
-	push_swap = malloc(sizeof(push_swap));
+	push_swap = malloc(sizeof(t_push_swap));
 	if (!push_swap)
 		return (NULL);
 	push_swap->stacks_len = stacks_len;
