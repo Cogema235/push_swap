@@ -6,7 +6,7 @@
 /*   By: nomoulin <nomoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 10:51:38 by nomoulin          #+#    #+#             */
-/*   Updated: 2023/02/10 14:15:59 by nomoulin         ###   ########.fr       */
+/*   Updated: 2023/02/10 14:24:34 by nomoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int	main(int ac, char **av)
 	{
 		if (!entry_is_valid(ac, av))
 			invalid_entry_error();
-		push_swap_ = push_swap(ac);
+		//push_swap_ = push_swap(ac);
 		if (!push_swap_)
 			allocation_error();
 		init_push_swap(push_swap_, av, ac);
-		display_stacks(push_swap_);
+		//display_stacks(push_swap_);
 		delete_push_swap(push_swap_);
 	}
 	else
