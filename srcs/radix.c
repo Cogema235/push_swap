@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdio.h>
 
 static uint8_t	max_bits(int32_t n)
 {
@@ -35,7 +36,7 @@ void	radix_sort(t_push_swap *push_swap)
 		stack_index = 0;
 		while (stack_index < push_swap->stacks_len)
 		{
-			if (push_swap->stack_a[0] >> count & 1)
+			if (((push_swap->stack_a[0] >> count) & 1) == 1)
 				ra(push_swap);
 			else
 				pb(push_swap);

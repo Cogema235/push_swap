@@ -40,13 +40,12 @@ void	pa(t_push_swap *push_swap)
 {
 	if (push_swap->b_weight)
 	{
-		if (push_swap->a_weight)
-			shift_down(push_swap->stack_a, push_swap->stacks_len);
+		shift_down(push_swap->stack_a, push_swap->stacks_len);
 		push_swap->stack_a[0] = push_swap->stack_b[0];
 		shift_up(push_swap->stack_b, push_swap->stacks_len);
+		push_swap->a_weight++;
+		push_swap->b_weight--;
 	}
-	push_swap->a_weight++;
-	push_swap->b_weight--;
 	dynappend_str(push_swap->instructions, "pa\n");
 }
 
@@ -54,12 +53,11 @@ void	pb(t_push_swap *push_swap)
 {
 	if (push_swap->a_weight)
 	{
-		if (push_swap->b_weight)
-			shift_down(push_swap->stack_b, push_swap->stacks_len);
+		shift_down(push_swap->stack_b, push_swap->stacks_len);
 		push_swap->stack_b[0] = push_swap->stack_a[0];
 		shift_up(push_swap->stack_a, push_swap->stacks_len);
+		push_swap->b_weight++;
+		push_swap->a_weight--;
 	}
-	push_swap->b_weight++;
-	push_swap->a_weight--;
 	dynappend_str(push_swap->instructions, "pb\n");
 }
