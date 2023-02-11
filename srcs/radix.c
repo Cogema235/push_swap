@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
 
 static uint8_t	max_bits(int32_t n)
 {
