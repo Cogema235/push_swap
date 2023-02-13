@@ -42,8 +42,11 @@ t_dynastring	*dappend_chr(t_dynastring *dynstr, char chr);
 t_dynastring	*print_str(t_dynastring *dynstr);
 t_push_swap		*push_swap(uint32_t stacks_len);
 uint32_t		occurences(char *str, char **cont, uint32_t len);
+uint32_t		uabs32(int32_t n);
+uint32_t		cost_of(uint32_t index, t_push_swap *push_swap);
 int64_t			atoi64(char *str);
 int32_t			atoi32(char *str);
+int32_t			min32(int32_t a, int32_t b);
 uint8_t			entry_is_valid(uint32_t ac, char **av);
 uint8_t			is_unique(char **args, uint32_t index, uint32_t len);
 uint8_t			is_int(char *nbr);
@@ -65,7 +68,7 @@ void			ra(t_push_swap *push_swap);
 void			rb(t_push_swap *push_swap);
 void			rr(t_push_swap *push_swap);
 void			rra(t_push_swap *push_swap);
-void			rra(t_push_swap *push_swap);
+void			rrb(t_push_swap *push_swap);
 void			rrr(t_push_swap *push_swap);
 void			shift_down(int32_t *stack, uint32_t len);
 void			shift_up(int32_t *stack, uint32_t len);
@@ -73,5 +76,6 @@ void			simplify_a(t_push_swap *push_swap);
 void			set_sorted(t_push_swap *push_swap);
 void			delete_dynastring(t_dynastring *dynstr);
 void			radix_sort(t_push_swap *push_swap);
+void			low_cost_sort(t_push_swap *push_swap);
 
 #endif

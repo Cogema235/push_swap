@@ -12,6 +12,16 @@
 
 #include "../push_swap.h"
 
+void	display_stacks(t_push_swap *push_swap)
+{
+	#include <stdio.h>
+	for (unsigned int i = 0; i < push_swap->stacks_len; i++)
+	{
+		printf("%d ", push_swap->stack_a[i]);
+	}
+	printf("\n");
+}
+
 int	main(int ac, char **av)
 {
 	t_push_swap	*push_swap_;
@@ -24,8 +34,11 @@ int	main(int ac, char **av)
 		if (!push_swap_)
 			allocation_error();
 		init_push_swap(push_swap_, av, ac);
-		radix_sort(push_swap_);
+		display_stacks(push_swap_);
+		//radix_sort(push_swap_);
+		low_cost_sort(push_swap_);
 		print_str(push_swap_->instructions);
+		display_stacks(push_swap_);
 		delete_push_swap(push_swap_);
 	}
 	return (0);

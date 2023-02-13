@@ -48,3 +48,17 @@ int64_t	atoi64(char *str)
 		return (-nbr);
 	return (nbr);
 }
+
+uint32_t	uabs32(int32_t n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
+}
+
+int32_t	min32(int32_t a, int32_t b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
