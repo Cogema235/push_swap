@@ -73,6 +73,7 @@ uint32_t	min_a_index(t_push_swap *push_swap)
 	return (min_index);
 }
 
+/*
 void	selection_sort(t_push_swap *push_swap)
 {
 	while (push_swap->a_weight)
@@ -81,4 +82,42 @@ void	selection_sort(t_push_swap *push_swap)
 		pb(push_swap);
 	}
 	empty_b(push_swap);
+}
+*/
+
+void	selection_sort(t_push_swap *push_swap)
+{
+	while (push_swap->a_weight > 2)
+	{
+		set_a(min_a_index(push_swap), push_swap);
+		pb(push_swap);
+	}
+	/*if (!is_sorted(push_swap->stack_a, 3))
+		sort_3(push_swap);*/
+	if (!is_sorted(push_swap->stack_a, 2))
+		sa(push_swap);
+	empty_b(push_swap);
+}
+
+uint32_t	max_a_index(t_push_swap *push_swap)
+{
+	uint32_t	max_index;
+	uint32_t	index;
+	int32_t		current_value;
+	int32_t		max;
+
+	index = 0;
+	max = push_swap->stack_a[0];
+	max_index = 0;
+	while (index < push_swap->a_weight)
+	{
+		current_value = push_swap->stack_a[index];
+		if (current_value > max)
+		{
+			max = current_value;
+			max_index = index;
+		}
+		index++;
+	}
+	return (max_index);
 }
