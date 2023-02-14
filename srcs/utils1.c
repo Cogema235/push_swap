@@ -62,3 +62,23 @@ int32_t	min32(int32_t a, int32_t b)
 		return (a);
 	return (b);
 }
+
+uint8_t	is_sorted(int32_t *array, uint64_t len)
+{
+	uint32_t	index;
+	int32_t		previous_elm;
+	int32_t		current_elm;
+
+	previous_elm = INT32_MIN;
+	current_elm = array[0];
+	index = 0;
+	while (index < len)
+	{
+		current_elm = array[index];
+		if (current_elm < previous_elm)
+			return (0);
+		previous_elm = current_elm;
+		index++;
+	}
+	return (1);
+}

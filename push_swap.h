@@ -43,7 +43,6 @@ t_dynastring	*print_str(t_dynastring *dynstr);
 t_push_swap		*push_swap(uint32_t stacks_len);
 uint32_t		occurences(char *str, char **cont, uint32_t len);
 uint32_t		uabs32(int32_t n);
-uint32_t		cost_of(uint32_t index, t_push_swap *push_swap);
 int64_t			atoi64(char *str);
 int32_t			atoi32(char *str);
 int32_t			min32(int32_t a, int32_t b);
@@ -53,6 +52,7 @@ uint8_t			is_int(char *nbr);
 uint8_t			is_digit_(char chr);
 uint8_t			is_int32(char *str);
 uint8_t			is_ws(char c);
+uint8_t			is_sorted(int32_t *array, uint64_t len);
 void			init_push_swap(t_push_swap *push_swap,
 					char **nbrs, uint32_t size);
 void			add_number(t_push_swap *push_swap, int32_t number);
@@ -77,5 +77,7 @@ void			set_sorted(t_push_swap *push_swap);
 void			delete_dynastring(t_dynastring *dynstr);
 void			radix_sort(t_push_swap *push_swap);
 void			low_cost_sort(t_push_swap *push_swap);
+void			selection_sort(t_push_swap *push_swap);
+void			set_a(uint32_t index, t_push_swap *push_swap);
 
 #endif

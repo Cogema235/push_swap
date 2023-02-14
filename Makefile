@@ -13,7 +13,7 @@
 NAME = push_swap
 
 CC = clang
-CFLAGS = -Wall -Wextra -Werror  #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror  -fsanitize=address
 
 CFILES = errors main check init push_swap utils swap push rotate r_rotate utils1 radix simplifiying dynastring dynastring1 low_cost low_cost_1
 OBJS = $(addprefix srcs/, $(addsuffix .o, $(CFILES)))
