@@ -41,7 +41,7 @@ int	main(int ac, char **av)
 				sort_2(push_swap_);
 			else if(push_swap_->stacks_len == 3)
 				sort_3(push_swap_);
-			else if (push_swap_->stacks_len < 60)
+			else if (push_swap_->stacks_len < 110)
 				selection_sort(push_swap_);
 			else
 				radix_sort(push_swap_);

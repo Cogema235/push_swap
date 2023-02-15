@@ -41,8 +41,7 @@ void	radix_sort(t_push_swap *push_swap)
 				pb(push_swap);
 			stack_index++;
 		}
-		while (push_swap->b_weight)
-			pa(push_swap);
+		empty_b(push_swap);
 		count++;
 	}
 }

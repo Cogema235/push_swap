@@ -85,5 +85,6 @@ void			selection_sort(t_push_swap *push_swap);
 void			set_a(uint32_t index, t_push_swap *push_swap);
 void			sort_3(t_push_swap *push_swap);
 void			sort_2(t_push_swap *push_swap);
+void			empty_b(t_push_swap *push_swap);
 
 #endif

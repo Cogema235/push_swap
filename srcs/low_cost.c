@@ -39,16 +39,22 @@ void	sort_2(t_push_swap *push_swap)
 
 void	sort_3(t_push_swap *push_swap)
 {
+	int32_t	min;
+	int32_t	max;
+
+	min = push_swap->stack_a[min_a_index(push_swap)];
+	max = push_swap->stack_a[max_a_index(push_swap)];
+
 	if (is_sorted(&push_swap->stack_a[1], 2))
 	{
-		if (push_swap->stack_a[0] == 1)
+		if (push_swap->stack_a[0] != max && push_swap->stack_a[0] != min)
 			sa(push_swap);
 		else
 			ra(push_swap);
 	}
 	else if (is_sorted(push_swap->stack_a, 2))
 	{
-		if (push_swap->stack_a[0] == 0)
+		if (push_swap->stack_a[0] == min)
 		{
 			rra(push_swap);
 			sa(push_swap);
