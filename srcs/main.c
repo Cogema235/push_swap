@@ -14,7 +14,6 @@
 
 void	display_stacks(t_push_swap *push_swap)
 {
-	#include <stdio.h>
 	for (unsigned int i = 0; i < push_swap->stacks_len; i++)
 	{
 		printf("%d ", push_swap->stack_a[i]);
@@ -39,7 +38,7 @@ int	main(int ac, char **av)
 		{
 			if (push_swap_->stacks_len == 2)
 				sort_2(push_swap_);
-			else if(push_swap_->stacks_len == 3)
+			else if (push_swap_->stacks_len == 3)
 				sort_3(push_swap_);
 			else if (push_swap_->stacks_len < 110)
 				selection_sort(push_swap_);
