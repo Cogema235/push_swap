@@ -19,6 +19,7 @@ void	sort_2(t_push_swap *push_swap)
 
 void	sort_3(t_push_swap *push_swap)
 {
+	uint8_t	ret;
 	int32_t	min;
 	int32_t	max;
 
@@ -33,8 +34,9 @@ void	sort_3(t_push_swap *push_swap)
 	}
 	else if (is_sorted(push_swap->stack_a, 2))
 	{
+		ret = (push_swap->stack_a[0] == min);
 		rra(push_swap);
-		if (push_swap->stack_a[0] == min)
+		if (ret)
 			sa(push_swap);
 	}
 	else
@@ -65,7 +67,9 @@ void	range_selection_sort(t_push_swap *push_swap)
 	int32_t		max;
 
 	max = push_swap->a_weight - 1;
-	if (push_swap->stacks_len < 200)
+	if (push_swap->stacks_len < 30)
+		chunk_size = max;
+	else if (push_swap->stacks_len < 200)
 		chunk_size = max / 5;
 	else
 		chunk_size = max / 11;
