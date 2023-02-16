@@ -90,3 +90,28 @@ uint32_t	max_a_index(t_push_swap *push_swap)
 	}
 	return (max_index);
 }
+
+void	set_b(uint32_t index, t_push_swap *push_swap)
+{
+	uint32_t	r_cost;
+	uint32_t	rr_cost;
+
+	r_cost = index;
+	rr_cost = push_swap->b_weight - index;
+	if (r_cost < rr_cost)
+	{
+		while (r_cost)
+		{
+			rb(push_swap);
+			r_cost--;
+		}
+	}
+	else
+	{
+		while (rr_cost)
+		{
+			rrb(push_swap);
+			rr_cost--;
+		}
+	}
+}

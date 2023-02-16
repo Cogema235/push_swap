@@ -46,7 +46,7 @@ void	sort_3(t_push_swap *push_swap)
 
 void	selection_sort(t_push_swap *push_swap)
 {
-	while (push_swap->a_weight > 3)
+	while (push_swap->a_weight > 3 && !is_sorted(push_swap->stack_a, push_swap->a_weight))
 	{
 		set_a(min_a_index(push_swap), push_swap);
 		pb(push_swap);
@@ -54,4 +54,24 @@ void	selection_sort(t_push_swap *push_swap)
 	if (!is_sorted(push_swap->stack_a, 3))
 		sort_3(push_swap);
 	empty_b(push_swap);
+}
+
+void	low_cost_sort(t_push_swap *push_swap)
+{
+	uint32_t	chunk_size;
+	int32_t		start;
+	int32_t		end;
+	int32_t		max;
+
+	max = push_swap->a_weight - 1;
+	chunk_size = max / 5;
+	start = max;
+	end = max - chunk_size;
+	while (end > 0)
+	{
+		send_range_to_b(push_swap, start, end);
+		end = start;
+		start -= chunk_size;
+		empty_b_sort(push_swap);
+	}
 }

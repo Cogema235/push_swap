@@ -46,6 +46,8 @@ uint32_t		occurences(char *str, char **cont, uint32_t len);
 uint32_t		uabs32(int32_t n);
 uint32_t		min_a_index(t_push_swap *push_swap);
 uint32_t		max_a_index(t_push_swap *push_swap);
+uint32_t		min_b_index(t_push_swap *push_swap);
+uint32_t		max_b_index(t_push_swap *push_swap);
 uint32_t		set_max_cost(t_push_swap *push_swap);
 uint32_t		set_min_cost(t_push_swap *push_swap);
 int64_t			atoi64(char *str);
@@ -58,6 +60,9 @@ uint8_t			is_digit_(char chr);
 uint8_t			is_int32(char *str);
 uint8_t			is_ws(char c);
 uint8_t			is_sorted(int32_t *array, uint64_t len);
+uint8_t			is_in_range(int32_t n, int32_t start, int32_t end);
+uint8_t			push_first_in_range_to_b(t_push_swap *push_swap,
+					int32_t start, int32_t end);
 void			init_push_swap(t_push_swap *push_swap,
 					char **nbrs, uint32_t size);
 void			add_number(t_push_swap *push_swap, int32_t number);
@@ -84,8 +89,13 @@ void			radix_sort(t_push_swap *push_swap);
 void			low_cost_sort(t_push_swap *push_swap);
 void			selection_sort(t_push_swap *push_swap);
 void			set_a(uint32_t index, t_push_swap *push_swap);
+void			set_b(uint32_t index, t_push_swap *push_swap);
 void			sort_3(t_push_swap *push_swap);
 void			sort_2(t_push_swap *push_swap);
+void			send_b_min_to_a(t_push_swap *push_swap);
+void			empty_b_sort(t_push_swap *push_swap);
 void			empty_b(t_push_swap *push_swap);
+void			send_range_to_b(t_push_swap *push_swap, int32_t start, int32_t end);
+void			send_b_max_to_a(t_push_swap *push_swap);
 
 #endif
