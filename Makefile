@@ -16,7 +16,8 @@ CC = clang
 CFLAGS = -Wall -Wextra -Werror  -fsanitize=address
 
 CFILES = errors main check init push_swap utils swap push rotate r_rotate utils1 radix simplifiying dynastring dynastring1 low_cost low_cost_1 sorting
-OBJS = $(addprefix srcs/, $(addsuffix .o, $(CFILES)))
+#OBJS = $(addprefix srcs/, $(addsuffix .o, $(CFILES)))
+OBJS = $(addsuffix .o, $(CFILES))
 
 all : $(NAME)
 
@@ -31,7 +32,7 @@ clean :
 $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o : %.c
+%.o : srcs/%.c
 	$(CC) -c $< $(CFLAGS) -o $@
 
 .PHONY : all fclean clean re

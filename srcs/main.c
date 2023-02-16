@@ -41,10 +41,8 @@ int	main(int ac, char **av)
 				sort_3(push_swap_);
 			else if (push_swap_->stacks_len < 30)
 				selection_sort(push_swap_);
-			else if (push_swap_->stacks_len < 400)
-				low_cost_sort(push_swap_);
 			else
-				radix_sort(push_swap_);
+				range_selection_sort(push_swap_);
 			print_str(push_swap_->instructions);
 			display_stacks(push_swap_);
 		}

@@ -50,6 +50,7 @@ uint32_t		min_b_index(t_push_swap *push_swap);
 uint32_t		max_b_index(t_push_swap *push_swap);
 uint32_t		set_max_cost(t_push_swap *push_swap);
 uint32_t		set_min_cost(t_push_swap *push_swap);
+uint32_t		insersion_index(t_push_swap *push_swap, int32_t value);
 int64_t			atoi64(char *str);
 int32_t			atoi32(char *str);
 int32_t			min32(int32_t a, int32_t b);
@@ -86,7 +87,7 @@ void			simplify_a(t_push_swap *push_swap);
 void			set_sorted(t_push_swap *push_swap);
 void			delete_dynastring(t_dynastring *dynstr);
 void			radix_sort(t_push_swap *push_swap);
-void			low_cost_sort(t_push_swap *push_swap);
+void			range_selection_sort(t_push_swap *push_swap);
 void			selection_sort(t_push_swap *push_swap);
 void			set_a(uint32_t index, t_push_swap *push_swap);
 void			set_b(uint32_t index, t_push_swap *push_swap);
@@ -95,7 +96,8 @@ void			sort_2(t_push_swap *push_swap);
 void			send_b_min_to_a(t_push_swap *push_swap);
 void			empty_b_sort(t_push_swap *push_swap);
 void			empty_b(t_push_swap *push_swap);
-void			send_range_to_b(t_push_swap *push_swap, int32_t start, int32_t end);
+void			send_range_to_b(t_push_swap *push_swap,
+					int32_t start, int32_t end);
 void			send_b_max_to_a(t_push_swap *push_swap);
 
 #endif

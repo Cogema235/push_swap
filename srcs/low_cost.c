@@ -22,7 +22,7 @@ uint32_t	min_b_index(t_push_swap *push_swap)
 	index = 0;
 	min = push_swap->stack_b[0];
 	min_index = 0;
-	while (index < push_swap->a_weight)
+	while (index < push_swap->b_weight)
 	{
 		current_value = push_swap->stack_b[index];
 		if (current_value < min)
@@ -35,12 +35,6 @@ uint32_t	min_b_index(t_push_swap *push_swap)
 	return (min_index);
 }
 
-void	send_b_max_to_a(t_push_swap *push_swap)
-{
-	set_b(max_b_index(push_swap), push_swap);
-	pa(push_swap);
-}
-
 uint32_t	max_b_index(t_push_swap *push_swap)
 {
 	uint32_t	max_index;
@@ -51,7 +45,7 @@ uint32_t	max_b_index(t_push_swap *push_swap)
 	index = 0;
 	max = push_swap->stack_b[0];
 	max_index = 0;
-	while (index < push_swap->a_weight)
+	while (index < push_swap->b_weight)
 	{
 		current_value = push_swap->stack_b[index];
 		if (current_value > max)
@@ -64,34 +58,25 @@ uint32_t	max_b_index(t_push_swap *push_swap)
 	return (max_index);
 }
 
-void	send_b_min_to_a(t_push_swap *push_swap)
-{
-	set_b(min_b_index(push_swap), push_swap);
-	pa(push_swap);
-}
-
-
 void	empty_b_sort(t_push_swap *push_swap)
 {
 	while (push_swap->b_weight)
 	{
-		send_b_max_to_a(push_swap);
+		set_b(max_b_index(push_swap), push_swap);
+		pa(push_swap);
 	}
 }
 
-uint8_t	is_in_range(int32_t n, int32_t start, int32_t end)
-{
-	return (n >= start && n < end);
-}
-
-uint8_t	push_first_in_range_to_b(t_push_swap *push_swap, int32_t start, int32_t end)
+uint8_t	push_first_in_range_to_b(t_push_swap *push_swap,
+		int32_t start, int32_t end)
 {
 	uint32_t	index;
 
 	index = 0;
 	while (index < push_swap->a_weight)
 	{
-		if (is_in_range(push_swap->stack_a[index], start, end))
+		if (push_swap->stack_a[index] >= start
+			&& push_swap->stack_a[index] < end)
 		{
 			set_a(index, push_swap);
 			pb(push_swap);
@@ -100,9 +85,4 @@ uint8_t	push_first_in_range_to_b(t_push_swap *push_swap, int32_t start, int32_t 
 		index++;
 	}
 	return (0);
-}
-
-void	send_range_to_b(t_push_swap *push_swap, int32_t start, int32_t end)
-{
-	while (push_first_in_range_to_b(push_swap, start, end));
 }
