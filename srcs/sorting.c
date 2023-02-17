@@ -59,7 +59,25 @@ void	selection_sort(t_push_swap *push_swap)
 	empty_b(push_swap);
 }
 
-void	range_selection_sort(t_push_swap *push_swap)
+void	push_by_chunks(t_push_swap *push_swap)
+{
+	int32_t	chunk_size;
+	int32_t	i;
+
+	chunk_size = 9 + (push_swap->stacks_len / 20);
+	i = 1;
+	while (push_swap->a_weight)
+	{
+		while (push_swap->stack_a[0] > i + chunk_size)
+			ra(push_swap);
+		pb(push_swap);
+		if (push_swap->stack_b[0] < i)
+			rb(push_swap);
+		i++;
+	}
+}
+
+void	reverse_pyramid(t_push_swap *push_swap)
 {
 	uint32_t	chunk_size;
 	int32_t		start;
@@ -67,21 +85,9 @@ void	range_selection_sort(t_push_swap *push_swap)
 	int32_t		max;
 
 	max = push_swap->a_weight - 1;
-	if (push_swap->stacks_len < 30)
-		chunk_size = max;
-	else if (push_swap->stacks_len < 200)
-		chunk_size = max / 5;
-	else
-		chunk_size = max / 11;
-	chunk_size = max / 5;
+	chunk_size = max / 9;
 	start = 0;
 	end = chunk_size;
-	while (end < max + (int32_t)chunk_size)
-	{
-		while (push_first_in_range_to_b(push_swap, start, end))
-			;
-		start = end;
-		end += chunk_size;
-	}
+	push_by_chunks(push_swap);
 	empty_b_sort(push_swap);
 }

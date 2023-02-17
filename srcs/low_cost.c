@@ -12,29 +12,6 @@
 
 #include "../push_swap.h"
 
-uint32_t	min_b_index(t_push_swap *push_swap)
-{
-	uint32_t	min_index;
-	uint32_t	index;
-	int32_t		current_value;
-	int32_t		min;
-
-	index = 0;
-	min = push_swap->stack_b[0];
-	min_index = 0;
-	while (index < push_swap->b_weight)
-	{
-		current_value = push_swap->stack_b[index];
-		if (current_value < min)
-		{
-			min = current_value;
-			min_index = index;
-		}
-		index++;
-	}
-	return (min_index);
-}
-
 uint32_t	max_b_index(t_push_swap *push_swap)
 {
 	uint32_t	max_index;
@@ -67,22 +44,35 @@ void	empty_b_sort(t_push_swap *push_swap)
 	}
 }
 
-uint8_t	push_first_in_range_to_b(t_push_swap *push_swap,
-		int32_t start, int32_t end)
+void	set_a(uint32_t index, t_push_swap *push_swap)
 {
-	uint32_t	index;
+	uint32_t	r_cost;
+	uint32_t	rr_cost;
 
-	index = 0;
-	while (index < push_swap->a_weight)
+	r_cost = index;
+	rr_cost = push_swap->a_weight - index;
+	if (r_cost < rr_cost)
 	{
-		if (push_swap->stack_a[index] >= start
-			&& push_swap->stack_a[index] < end)
+		while (r_cost)
 		{
-			set_a(index, push_swap);
-			pb(push_swap);
-			return (1);
+			ra(push_swap);
+			r_cost--;
 		}
-		index++;
 	}
-	return (0);
+	else
+	{
+		while (rr_cost)
+		{
+			rra(push_swap);
+			rr_cost--;
+		}
+	}
+}
+
+void	empty_b(t_push_swap *push_swap)
+{
+	while (push_swap->b_weight)
+	{
+		pa(push_swap);
+	}
 }

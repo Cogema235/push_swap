@@ -33,7 +33,7 @@ int	main(int ac, char **av)
 			else if (push_swap_->stacks_len < 30)
 				selection_sort(push_swap_);
 			else
-				range_selection_sort(push_swap_);
+				reverse_pyramid(push_swap_);
 			print_str(push_swap_->instructions);
 		}
 		delete_push_swap(push_swap_);

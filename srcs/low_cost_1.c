@@ -12,39 +12,6 @@
 
 #include "../push_swap.h"
 
-void	set_a(uint32_t index, t_push_swap *push_swap)
-{
-	uint32_t	r_cost;
-	uint32_t	rr_cost;
-
-	r_cost = index;
-	rr_cost = push_swap->a_weight - index;
-	if (r_cost < rr_cost)
-	{
-		while (r_cost)
-		{
-			ra(push_swap);
-			r_cost--;
-		}
-	}
-	else
-	{
-		while (rr_cost)
-		{
-			rra(push_swap);
-			rr_cost--;
-		}
-	}
-}
-
-void	empty_b(t_push_swap *push_swap)
-{
-	while (push_swap->b_weight)
-	{
-		pa(push_swap);
-	}
-}
-
 uint32_t	min_a_index(t_push_swap *push_swap)
 {
 	uint32_t	min_index;
