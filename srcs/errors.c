@@ -14,14 +14,14 @@
 
 void	invalid_entry_error(void)
 {
-	write(STDOUT_FILENO, "Error\n",
+	write(2, "Error\n",
 		sizeof("Error\n"));
 	exit(0);
 }
 
 void	allocation_error(void)
 {
-	write(STDOUT_FILENO, "Error, allacation failed.\n",
-		sizeof("Error, allocation failed.\n"));
-	exit(EXIT_FAILURE);
+	write(2, "Error\n",
+		sizeof("Error\n"));
+	exit(1);
 }

@@ -13,10 +13,9 @@
 NAME = push_swap
 
 CC = clang
-CFLAGS = -Wall -Wextra -Werror  -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 
-CFILES = errors main check init push_swap utils swap push rotate r_rotate utils1 simplifiying dynastring dynastring1 low_cost low_cost_1 sorting
-#OBJS = $(addprefix srcs/, $(addsuffix .o, $(CFILES)))
+CFILES = errors main check init push_swap utils swap push rotate r_rotate utils1 simplifiying dynastring dynastring1 sorting2 sorting1 sorting
 OBJS = $(addsuffix .o, $(CFILES))
 
 all : $(NAME)
