@@ -64,7 +64,7 @@ void	push_by_chunks(t_push_swap *push_swap)
 	int32_t	chunk_size;
 	int32_t	i;
 
-	chunk_size = 9 + (push_swap->stacks_len / 20);
+	chunk_size = 10 + (push_swap->stacks_len / 20);
 	i = 1;
 	while (push_swap->a_weight)
 	{
@@ -79,15 +79,6 @@ void	push_by_chunks(t_push_swap *push_swap)
 
 void	reverse_pyramid(t_push_swap *push_swap)
 {
-	uint32_t	chunk_size;
-	int32_t		start;
-	int32_t		end;
-	int32_t		max;
-
-	max = push_swap->a_weight - 1;
-	chunk_size = max / 9;
-	start = 0;
-	end = chunk_size;
 	push_by_chunks(push_swap);
 	empty_b_sort(push_swap);
 }
