@@ -65,7 +65,7 @@ void	push_by_chunks(t_push_swap *push_swap)
 	int32_t	i;
 
 	chunk_size = 10 + (push_swap->stacks_len / 20);
-	i = 1;
+	i = 0;
 	while (push_swap->a_weight)
 	{
 		while (push_swap->stack_a[0] > i + chunk_size)
